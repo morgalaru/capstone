@@ -1,0 +1,40 @@
+header {
+    padding: 1.8rem $gutter;
+    h1 {font-size: 2rem;}
+}
+
+
+nav ul {
+    width: 300px;
+    border-radius: 4px;
+}
+
+
+
+
+//main
+.hero {
+    div{
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: .5rem 1.5rem;
+        h3{
+            text-align: right;
+            width: auto;
+            font-size: 1.5rem;
+            margin-left: 5rem;
+        }
+    }
+}
+
+
+.logos {
+    section{padding: .5rem 1rem;}
+}
+
+//create for loop
+@for $i from 1 through 12 {
+    $w: calc($i / 12) *100%;
+    .medium-#{$i} {flex-basis: $w;}
+}

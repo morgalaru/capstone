@@ -1,0 +1,223 @@
+/* Prevent adjustments of font size after orientation changes.  */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    height: 100%;
+}
+  
+/*---- apply a natural box layout model to all elements -------*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    font-family: $defaultFont;
+    font-weight: $normalWeight;
+    color: $fontColor;
+    background-color: $backgroundColor;
+    h1, h2, h3 {
+        font-family: $headingFont;
+    }
+}
+
+
+//header
+#headerWrapper {
+    background-color: $primaryColor;
+    color: lighten($secondaryColor, 30%);
+}
+header {
+    padding: 1.5rem $gutter;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: $boldWeight;
+    }
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        color: lighten($secondaryColor, 30%);
+        padding: 2rem 2vw .5rem 2vw;
+    }
+} // end header
+
+
+// NAV
+#navWrapper {
+    background-color: lighten($secondaryColor, 30%);
+}
+
+nav {
+    z-index: 999;
+    ul{
+        background-color: lighten($secondaryColor, 30%);
+        list-style-type: none;
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        padding: 0;
+        margin: 2rem 0;
+        width: 100%;
+        li {flex:1;}
+    } // end ul
+    ul.open {display: block;}
+
+    ul li{
+        border-bottom: solid .5px rgba(37, 77, 69, .5);
+    }
+
+    ul li a {
+        display: block;
+        text-decoration: none;
+        color: $primaryColor;
+        padding: .9rem 4vw;
+        font-weight:500;
+        text-align: right;
+        transition: all .5s ease;
+    } // end anchors
+
+    li.active {background-color: lighten($secondaryColor, 20%);}
+    li a:hover {background-color: lighten($secondaryColor, 12%)}
+} // end nav
+
+
+
+
+// MAIN
+main {
+    h2{
+        font-size: auto;
+        text-align: center;
+        padding-top: $gutter;
+    }
+}
+.hero {
+    z-index: -1;
+    position: relative;
+    div{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0;
+        color: white;
+        padding: .5rem 1rem;
+        background: linear-gradient(0deg, rgba(55,55,55,0) 0%, rgba(37,37,37,0.9) 100%);
+        h3{text-shadow: 0 0 5px black; width: 300px; font-family: $defaultFont;}
+    }
+    video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+//cards
+// styling the rows
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 0 8px;
+    margin-bottom: 2rem;
+    //border: dashed 1px lime;
+}
+
+
+// styling the columns
+.column {
+    padding: 0 8px;
+    margin: 8px 0;
+    //border: dashed 1px pink;
+    section {
+        padding-bottom: 8px;
+        h3 {
+            padding: 1rem;
+            text-align: center;
+            background-color: #b23f61;
+            margin: 0;
+            border-radius: 9px 9px 0 0;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: $normalWeight;
+        }
+        img {
+            margin-top: 0;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+
+.logos{
+    section {
+        padding: .5rem 3rem;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.fill {background-color: #e0d8e0;}
+.round {border-radius: 9px;}
+.shadow {box-shadow: 0 2px 4px #cbcbcb;}
+
+
+// create for loop
+@for $i from 1 through 12 {
+    $w: calc($i / 12) *100%;
+    .small-#{$i} {flex-basis: $w;}
+}
+
+
+
+// begin footer
+#footerWrapper {
+    background-color: $primaryColor;
+    padding: .8rem $gutter;
+}
+footer {
+    color: rgba(255,255,255,.7);
+    p {
+        color: rgba(255,255,255,.8);
+        text-align: center;
+    }
+    .phone {
+        text-decoration: none;
+        font-size: 1rem;
+        font-size: 1.3rem;
+        p:hover {color: $secondaryColor;}
+    }
+    .copyright {
+        margin: 0;
+        font-family: $headingFont;
+        font-weight: 200;
+        padding: 1rem;
+        font-size: .8rem;
+    }
+
+    .locations{
+
+        h4 {margin-bottom: 0; font-size: 1.2rem;}
+        address {
+            margin-top: 4px; 
+            margin-left: 12px;
+        }
+    }
+    .break {
+        border: solid 1px rgba(255,255,255,.2);
+    }
+}
